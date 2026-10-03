@@ -35,6 +35,11 @@ Download the PDF with the download button above the preview.
   abbreviations, a landscape page): change `\includeexamplesfalse` to
   `\includeexamplestrue` in `metadata.tex` and click **Recompile**. They appear as
   Appendices B and C; copy what you need, then change the line back to `false`.
+- **Add a logo:** upload the image to your Overleaf project (for example
+  `logo.png`), then put its name in the first logo line of `metadata.tex`:
+  `\newcommand{\ThesisLogoFile}{logo.png}`. The university logo is on its
+  [brand page](https://u-paris.fr/charte-graphique-et-outils/). The two other lines are for more logos; write `none`
+  in a line to remove its box.
 - **Add a chapter:** copy a file in `chapters/en/` under a new name, then add a
   line such as `\include{chapters/en/06-new-chapter}` in `main.tex`, below the
   other `\include` lines.

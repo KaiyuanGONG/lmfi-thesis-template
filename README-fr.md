@@ -41,6 +41,12 @@ Téléchargez le PDF avec le bouton de téléchargement au-dessus de l'aperçu.
   `\includeexamplesfalse` par `\includeexamplestrue` et cliquez sur
   **Recompiler**. Ils apparaissent en annexes B et C ; copiez ce qui vous sert,
   puis remettez `false`.
+- **Ajouter un logo :** importez l'image dans votre projet Overleaf (par exemple
+  `logo.png`), puis indiquez son nom dans la première ligne de logo de
+  `metadata.tex` : `\newcommand{\ThesisLogoFile}{logo.png}`. Le logo de
+  l'université se trouve sur sa [page de charte graphique](https://u-paris.fr/charte-graphique-et-outils/). Les deux
+  autres lignes servent à d'autres logos ; écrivez `none` dans une ligne pour
+  retirer son cadre.
 - **Ajouter un chapitre :** copiez un fichier de `chapters/fr/` sous un nouveau
   nom, puis ajoutez une ligne comme `\include{chapters/fr/06-nouveau-chapitre}`
   dans `main-fr.tex`, sous les autres lignes `\include`.
