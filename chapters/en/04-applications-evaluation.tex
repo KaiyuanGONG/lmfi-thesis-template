@@ -1,0 +1,41 @@
+\chapter{Applications, Evaluation, and Discussion}
+\label{ch:evaluation}
+
+% For theoretical work, use this chapter for examples, consequences, or
+% limits. For empirical work, split it into protocol, results, and discussion.
+
+Consider the graph in \cref{fig:example-graph}. The direct edges are
+$a\to b$, $b\to c$, $c\to d$, and $a\to d$. The picture is drawn in TikZ, so
+it stays sharp at any zoom level.
+
+\begin{figure}[htbp]
+  \centering
+  \input{figures/reachability-graph.tex}
+  \caption{A four-vertex directed graph used to evaluate reachability.}
+  \label{fig:example-graph}
+\end{figure}
+
+Applying \cref{alg:warshall} gives the reflexive reachability matrix in
+\cref{tab:reachability}. For instance, $a$ reaches every vertex, whereas $d$
+reaches only itself. The entry in row $b$ and column $d$ records the path
+$b\to c\to d$, even though there is no direct edge $b\to d$.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Reflexive reachability matrix for \cref{fig:example-graph}.}
+  \label{tab:reachability}
+  \begin{tabular}{c *{4}{>{\centering\arraybackslash}p{1.2cm}}}
+    \toprule
+    From $\backslash$ To & $a$ & $b$ & $c$ & $d$ \\
+    \midrule
+    $a$ & 1 & 1 & 1 & 1 \\
+    $b$ & 0 & 1 & 1 & 1 \\
+    $c$ & 0 & 0 & 1 & 1 \\
+    $d$ & 0 & 0 & 0 & 1 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+This example checks internal consistency rather than performance. A genuine
+experimental chapter should state the data, software version, metric, and
+uncertainty, and discuss negative cases: reachability alone loses path lengths.

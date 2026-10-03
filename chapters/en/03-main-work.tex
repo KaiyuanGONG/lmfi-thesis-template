@@ -1,0 +1,52 @@
+\chapter{Main Work}
+\label{ch:main-work}
+
+% This is the central chapter. Replace the small algorithm below with the
+% thesis's principal construction, method, or theorem sequence. State
+% assumptions before claims.
+
+\begin{assumption}[Indexed vertices]
+\label{ass:indexed-vertices}
+$V=\{1,\dots,n\}$, and the edges are given by a Boolean matrix
+$A\in\{0,1\}^{n\times n}$.
+\end{assumption}
+
+Under \cref{ass:indexed-vertices}, the classical method of Warshall
+\cite{warshall1962} updates a Boolean matrix so that, after iteration $k$, it
+records paths whose intermediate vertices lie in $\{1,\dots,k\}$
+(\cref{alg:warshall}).
+
+\begin{algorithm}[htbp]
+\caption{Reflexive transitive closure of an adjacency matrix}
+\label{alg:warshall}
+\begin{algorithmic}[1]
+  \Require adjacency matrix $A\in\{0,1\}^{n\times n}$
+  \Ensure reachability matrix $T$
+  \State $T\gets A\lor I_n$
+  \For{$k\gets 1$ to $n$}
+    \For{$i\gets 1$ to $n$}
+      \For{$j\gets 1$ to $n$}
+        \State $T_{ij}\gets T_{ij}\lor(T_{ik}\land T_{kj})$
+      \EndFor
+    \EndFor
+  \EndFor
+  \State \Return $T$
+\end{algorithmic}
+\end{algorithm}
+
+\begin{proposition}
+\label{prop:warshall-correct}
+When \cref{alg:warshall} terminates, $T_{ij}=1$ exactly when $j$ is reachable
+from $i$.
+\end{proposition}
+
+\begin{proof}
+Induct on $k$. Initially $T$ records paths of length zero or one. At iteration
+$k$, the update adds precisely the paths that can be split at vertex $k$, so
+after the last iteration $T$ represents the relation in
+\cref{eq:transitive-closure}.
+\end{proof}
+
+The triple loop uses $O(n^3)$ Boolean operations and $O(n^2)$ memory. A thesis
+should separate proved complexity bounds from measured implementation
+performance.

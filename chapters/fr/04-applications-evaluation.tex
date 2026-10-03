@@ -1,0 +1,44 @@
+\chapter{Applications, évaluation et discussion}
+\label{ch:evaluation}
+
+% Pour un travail théorique, utilisez ce chapitre pour les exemples,
+% conséquences ou limites. Pour un travail empirique, séparez protocole,
+% résultats et discussion.
+
+Considérons le graphe de la \cref{fig:example-graph}. Ses arêtes directes sont
+$a\to b$, $b\to c$, $c\to d$ et $a\to d$. La figure est dessinée avec TikZ :
+elle reste nette quel que soit le zoom.
+
+\begin{figure}[htbp]
+  \centering
+  \input{figures/reachability-graph.tex}
+  \caption{Graphe orienté à quatre sommets utilisé pour évaluer l'accessibilité.}
+  \label{fig:example-graph}
+\end{figure}
+
+L'application de l'\cref{alg:warshall} donne la matrice réflexive d'accessibilité
+du \cref{tab:reachability}. Le sommet $a$ atteint tous les sommets, tandis que
+$d$ n'atteint que lui-même. L'entrée de la ligne $b$ et de la colonne $d$
+représente le chemin $b\to c\to d$, bien qu'il n'existe pas d'arête directe
+$b\to d$.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Matrice réflexive d'accessibilité de la \cref{fig:example-graph}.}
+  \label{tab:reachability}
+  \begin{tabular}{c *{4}{>{\centering\arraybackslash}p{1.2cm}}}
+    \toprule
+    De $\backslash$ vers & $a$ & $b$ & $c$ & $d$ \\
+    \midrule
+    $a$ & 1 & 1 & 1 & 1 \\
+    $b$ & 0 & 1 & 1 & 1 \\
+    $c$ & 0 & 0 & 1 & 1 \\
+    $d$ & 0 & 0 & 0 & 1 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Cet exemple vérifie la cohérence interne plutôt que la performance. Un véritable
+chapitre expérimental doit préciser les données, la version du logiciel,
+la métrique et l'incertitude, et discuter les cas négatifs : l'accessibilité
+seule perd les longueurs de chemins.

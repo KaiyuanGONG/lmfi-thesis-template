@@ -1,0 +1,75 @@
+% Neutral logo box, shown when a logo slot is empty or its file is missing.
+\newcommand{\TemplateLogoPlaceholder}{%
+  \fcolorbox{LMFINavy}{white}{%
+    \parbox[c][1.35cm][c]{0.88\linewidth}{%
+      \centering\small\textcolor{LMFINavy}{\TemplateLogoLabel}}}}
+
+% #1 is a metadata macro holding a file path. An empty path shows the neutral
+% box and the value none leaves the slot blank.
+\newcommand{\TemplateLogoSlot}[1]{%
+  \ifdefempty{#1}{%
+    \TemplateLogoPlaceholder
+  }{%
+    \ifdefstring{#1}{none}{}{%
+      \IfFileExists{#1}{%
+        \includegraphics[height=1.35cm,width=\linewidth,keepaspectratio]{#1}%
+      }{%
+        \PackageWarning{lmfi-template}{Logo file `#1' not found; using placeholder}%
+        \TemplateLogoPlaceholder
+      }%
+    }%
+  }%
+}
+
+\begin{titlepage}
+  \thispagestyle{empty}
+
+  \noindent
+  \begin{minipage}[c][2.3cm][c]{0.31\textwidth}
+    \raggedright\TemplateLogoSlot{\ThesisLogoFile}%
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[c][2.3cm][c]{0.31\textwidth}
+    \centering\TemplateLogoSlot{\ThesisLogoFileTwo}%
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[c][2.3cm][c]{0.31\textwidth}
+    \raggedleft\TemplateLogoSlot{\ThesisLogoFileThree}%
+  \end{minipage}
+
+  \vfill
+
+  \begin{center}
+    {\color{LMFINavy}\rule{\linewidth}{0.7mm}}\\[0.45cm]
+    {\Large\bfseries\TemplateTitle\par}
+    \vspace{0.45cm}
+    {\color{LMFINavy}\rule{\linewidth}{0.3mm}}
+  \end{center}
+
+  \vfill
+
+  \begin{center}
+    {\Large\textsc{\ThesisAuthor}}\\[1.2cm]
+
+    \textbf{\TemplateSupervisionLabel}\\[0.35cm]
+    \ThesisSupervisors%
+    \ifdefempty{\ThesisReferent}{}{%
+      \\[0.9cm]
+      \textbf{\TemplateReferentLabel}\\[0.25cm]
+      \ThesisReferent}%
+    \ifdefempty{\ThesisLaboratory}{}{%
+      \\[0.9cm]
+      \textbf{\TemplateLaboratoryLabel}\\[0.25cm]
+      \ThesisLaboratory}
+  \end{center}
+
+  \vfill
+
+  \begin{center}
+    \TemplateThesisType\\
+    \ThesisProgramme\\
+    \ThesisInstitution\\[0.8cm]
+    \TemplateAcademicYearLabel{} \ThesisAcademicYear\\
+    \ThesisLocation, \TemplateDate
+  \end{center}
+\end{titlepage}

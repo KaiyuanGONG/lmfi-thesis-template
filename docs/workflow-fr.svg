@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 140" width="880" height="140" role="img" aria-labelledby="t d">
+<title id="t">Utiliser le modèle</title><desc id="d">1. Ouvrir dans Overleaf ou importer le ZIP. 2. Remplir metadata.tex. 3. Remplacer les chapitres d'exemple par votre texte.</desc>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8C959F"/></marker></defs>
+<rect x="10" y="15" width="260" height="110" rx="12" fill="#F6F8FA" stroke="#D0D7DE"/>
+<circle cx="38" cy="45" r="14" fill="#138A36"/>
+<text x="38" y="50" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">1</text>
+<text x="62" y="51" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="700" fill="#1F2328">Récupérer</text>
+<text x="28" y="85" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" fill="#57606A">Ouvrir dans Overleaf,</text>
+<text x="28" y="105" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" fill="#57606A">ou importer le ZIP</text>
+<line x1="272" y1="70" x2="308" y2="70" stroke="#8C959F" stroke-width="2" marker-end="url(#a)"/>
+<rect x="310" y="15" width="260" height="110" rx="12" fill="#F6F8FA" stroke="#D0D7DE"/>
+<circle cx="338" cy="45" r="14" fill="#138A36"/>
+<text x="338" y="50" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">2</text>
+<text x="362" y="51" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="16" font-weight="700" fill="#1F2328">metadata.tex</text>
+<text x="328" y="85" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" fill="#57606A">titre, nom,</text>
+<text x="328" y="105" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" fill="#57606A">encadrants, dates</text>
+<line x1="572" y1="70" x2="608" y2="70" stroke="#8C959F" stroke-width="2" marker-end="url(#a)"/>
+<rect x="610" y="15" width="260" height="110" rx="12" fill="#F6F8FA" stroke="#D0D7DE"/>
+<circle cx="638" cy="45" r="14" fill="#138A36"/>
+<text x="638" y="50" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">3</text>
+<text x="662" y="51" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="16" font-weight="700" fill="#1F2328">chapters/</text>
+<text x="628" y="85" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" fill="#57606A">remplacer les exemples</text>
+<text x="628" y="105" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" fill="#57606A">par votre texte</text>
+</svg>

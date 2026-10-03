@@ -1,0 +1,10 @@
+# Line endings
+* text=auto eol=lf
+*.pdf binary
+
+# Keep the GitHub "Download ZIP" (and Open in Overleaf) to the template itself.
+/.gitattributes export-ignore
+/.gitignore export-ignore
+/README.md export-ignore
+/README-fr.md export-ignore
+/docs export-ignore

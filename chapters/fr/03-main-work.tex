@@ -1,0 +1,50 @@
+\chapter{Travail principal}
+\label{ch:main-work}
+
+% Ce chapitre constitue le cœur du mémoire. Remplacez le petit algorithme
+% ci-dessous par la construction, la méthode ou la suite de théorèmes
+% principale. Énoncez les hypothèses avant les résultats et justifiez chaque
+% étape.
+
+\begin{assumption}[Sommets indexés]
+\label{ass:indexed-vertices}
+$V=\{1,\dots,n\}$, et les arêtes sont données par une matrice booléenne
+$A\in\{0,1\}^{n\times n}$.
+\end{assumption}
+
+Sous l'\cref{ass:indexed-vertices}, la méthode classique de Warshall \cite{warshall1962}
+met à jour une matrice booléenne de sorte qu'après l'itération $k$, elle décrive
+les chemins dont les sommets intermédiaires appartiennent à
+$\{1,\dots,k\}$. Une version compacte est donnée par
+l'\cref{alg:warshall}.
+
+\begin{algorithm}[htbp]
+\caption{Clôture réflexive transitive d'une matrice d'adjacence}
+\label{alg:warshall}
+\begin{algorithmic}[1]
+  \Require matrice d'adjacence $A\in\{0,1\}^{n\times n}$
+  \Ensure matrice d'accessibilité $T$
+  \State $T\gets A\lor I_n$
+  \For{$k\gets 1$ à $n$}
+    \For{$i\gets 1$ à $n$}
+      \For{$j\gets 1$ à $n$}
+        \State $T_{ij}\gets T_{ij}\lor(T_{ik}\land T_{kj})$
+      \EndFor
+    \EndFor
+  \EndFor
+  \State \Return $T$
+\end{algorithmic}
+\end{algorithm}
+
+\begin{proposition}
+\label{prop:warshall-correct}
+À la fin de l'\cref{alg:warshall}, $T_{ij}=1$ exactement lorsque $j$ est
+accessible depuis $i$.
+\end{proposition}
+
+\begin{proof}
+On raisonne par récurrence sur $k$. Initialement, $T$ décrit les chemins de
+longueur zéro ou un. À l'itération $k$, la mise à jour ajoute précisément les
+chemins qui passent par le sommet $k$ ; après la dernière itération, $T$
+représente donc la relation de l'\cref{eq:transitive-closure}.
+\end{proof}

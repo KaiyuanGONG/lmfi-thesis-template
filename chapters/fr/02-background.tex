@@ -1,0 +1,53 @@
+\chapter{Contexte et préliminaires}
+\label{ch:background}
+
+% Introduisez uniquement les notations et résultats antérieurs utilisés
+% ensuite. Indiquez clairement ce qui est classique et citez sa source ; ne
+% transformez pas ce chapitre en panorama sans lien avec la suite.
+
+\begin{definition}[Graphe orienté fini]
+\label{def:directed-graph}
+Un \emph{graphe orienté fini} est un couple $G=(V,E)$, où $V$ est un ensemble
+fini de sommets et $E\subseteq V\times V$ un ensemble d'arêtes orientées.
+\end{definition}
+
+\begin{definition}[Accessibilité]
+\label{def:reachability}
+Soit $G=(V,E)$ un graphe orienté fini. Un sommet $v\in V$ est
+\emph{accessible} depuis $u\in V$, ce que l'on note $u\mathrel{R^*}v$, s'il
+existe un chemin de longueur $k\geq 0$ de $u$ vers $v$. Un chemin de longueur
+nulle rend chaque sommet accessible depuis lui-même.
+\end{definition}
+
+En notant $R=E$ la relation d'arêtes et $I_V$ la relation identité sur $V$, la
+clôture réflexive transitive est
+\begin{equation}
+  R^* = \bigcup_{k\geq 0} R^k,
+  \label{eq:transitive-closure}
+\end{equation}
+où $R^0=I_V$ et les puissances de relations sont définies par composition. Cette
+construction classique est présentée sous des angles complémentaires dans
+\cite{diestel2017,cormen2022}.
+
+\begin{theorem}[Transitivité de l'accessibilité]
+\label{thm:transitivity}
+Pour tous sommets $u,v,w\in V$, si $u\mathrel{R^*}v$ et
+$v\mathrel{R^*}w$, alors $u\mathrel{R^*}w$.
+\end{theorem}
+
+\begin{proof}
+La première hypothèse fournit un chemin de $u$ à $v$, et la seconde un chemin
+de $v$ à $w$. Leur concaténation forme un chemin de $u$ à $w$. Ainsi,
+$u\mathrel{R^*}w$ d'après la \cref{def:reachability}.
+\end{proof}
+
+Le \cref{thm:transitivity} découle aussi directement de
+l'\cref{eq:transitive-closure} : l'union contient les chemins de toute longueur
+finie et reste fermée par concaténation.
+
+\begin{corollary}[L'accessibilité est un préordre]
+\label{cor:preorder}
+La relation $R^*$ est réflexive et transitive sur $V$ : la réflexivité vient des
+chemins de longueur nulle (\cref{def:reachability}) et la transitivité est le
+\cref{thm:transitivity}.
+\end{corollary}

@@ -1,0 +1,59 @@
+% !BIB program = bibtex
+\documentclass[12pt,a4paper,oneside]{report}
+
+\def\TemplateMainLanguage{french}
+\input{metadata.tex}
+\input{preamble.tex}
+
+% Pendant la rédaction, décommentez une sélection pour ne compiler que ces chapitres.
+% \includeonly{chapters/fr/03-main-work,chapters/fr/04-applications-evaluation}
+
+\begin{document}
+\TemplateActivateLanguage
+
+% Les ancres sont désactivées sur la couverture afin d'éviter les doublons PDF.
+\hypersetup{pageanchor=false}
+\pagenumbering{gobble}
+\input{frontmatter/titlepage.tex}
+\clearpage
+
+\hypersetup{pageanchor=true}
+\pagenumbering{roman}
+\setcounter{page}{1}
+\input{frontmatter/fr/resume.tex}
+\ifincludesecondaryabstract
+  \input{frontmatter/en/abstract.tex}
+\fi
+\ifincludeacknowledgements
+  \input{frontmatter/fr/remerciements.tex}
+\fi
+
+\clearpage\phantomsection\addcontentsline{toc}{chapter}{\contentsname}
+{\renewcommand{\baselinestretch}{1}\setlength{\parskip}{0pt}\selectfont\tableofcontents}
+\ifincludelistoffigures
+  \listoffigures
+\fi
+\ifincludelistoftables
+  \listoftables
+\fi
+\clearpage
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\include{chapters/fr/01-introduction}
+\include{chapters/fr/02-background}
+\include{chapters/fr/03-main-work}
+\include{chapters/fr/04-applications-evaluation}
+\include{chapters/fr/05-conclusion}
+
+\bibliography{references}
+
+\ifincludeappendix
+  \appendix
+  \include{appendices/fr/example-appendix}
+  \ifincludeexamples
+    \include{appendices/fr/common-latex-patterns}
+    \include{appendices/fr/more-latex-patterns}
+  \fi
+\fi
+\end{document}

@@ -1,0 +1,23 @@
+% Project macros and abbreviations, loaded by preamble.tex.
+% Keep notation that you reuse here; delete anything the thesis does not use.
+
+% Sets and operators
+\newcommand{\N}{\mathbb{N}}
+\DeclareMathOperator{\Reach}{Reach}
+
+% Semantic brackets. These two macros draw the usual double brackets without an
+% extra font; stmaryrd provides true glyphs if you prefer them. \sem{\varphi}
+% sets the argument, and \sem*{\varphi} resizes the brackets to fit it.
+\providecommand{\llbracket}{\mathopen{[\mkern-3.3mu[}}
+\providecommand{\rrbracket}{\mathclose{]\mkern-3.3mu]}}
+\DeclarePairedDelimiter{\sem}{\llbracket}{\rrbracket}
+
+% Abbreviations used by the acro package (\ac, \acs, \acf, \printacronyms).
+% Give the long form in the language of the thesis.
+\ifdefstring{\TemplateMainLanguage}{french}{%
+  \DeclareAcronym{dag}{short = DAG, long = graphe orienté acyclique}
+  \DeclareAcronym{scc}{short = CFC, long = composante fortement connexe}
+}{%
+  \DeclareAcronym{dag}{short = DAG, long = directed acyclic graph}
+  \DeclareAcronym{scc}{short = SCC, long = strongly connected component}
+}

@@ -1,0 +1,59 @@
+% !BIB program = bibtex
+\documentclass[12pt,a4paper,oneside]{report}
+
+\def\TemplateMainLanguage{english}
+\input{metadata.tex}
+\input{preamble.tex}
+
+% During drafting, uncomment a subset to compile only selected chapters.
+% \includeonly{chapters/en/03-main-work,chapters/en/04-applications-evaluation}
+
+\begin{document}
+\TemplateActivateLanguage
+
+% Disabling page anchors on the unnumbered cover avoids duplicate destinations.
+\hypersetup{pageanchor=false}
+\pagenumbering{gobble}
+\input{frontmatter/titlepage.tex}
+\clearpage
+
+\hypersetup{pageanchor=true}
+\pagenumbering{roman}
+\setcounter{page}{1}
+\input{frontmatter/en/abstract.tex}
+\ifincludesecondaryabstract
+  \input{frontmatter/fr/resume.tex}
+\fi
+\ifincludeacknowledgements
+  \input{frontmatter/en/acknowledgements.tex}
+\fi
+
+\clearpage\phantomsection\addcontentsline{toc}{chapter}{\contentsname}
+{\renewcommand{\baselinestretch}{1}\setlength{\parskip}{0pt}\selectfont\tableofcontents}
+\ifincludelistoffigures
+  \listoffigures
+\fi
+\ifincludelistoftables
+  \listoftables
+\fi
+\clearpage
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\include{chapters/en/01-introduction}
+\include{chapters/en/02-background}
+\include{chapters/en/03-main-work}
+\include{chapters/en/04-applications-evaluation}
+\include{chapters/en/05-conclusion}
+
+\bibliography{references}
+
+\ifincludeappendix
+  \appendix
+  \include{appendices/en/example-appendix}
+  \ifincludeexamples
+    \include{appendices/en/common-latex-patterns}
+    \include{appendices/en/more-latex-patterns}
+  \fi
+\fi
+\end{document}

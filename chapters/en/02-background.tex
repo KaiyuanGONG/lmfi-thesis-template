@@ -1,0 +1,53 @@
+\chapter{Background and Preliminaries}
+\label{ch:background}
+
+% Introduce only the notation and prior results used later. State clearly
+% which material is standard and cite its source; do not turn this chapter
+% into an unrelated survey.
+
+\begin{definition}[Finite directed graph]
+\label{def:directed-graph}
+A \emph{finite directed graph} is a pair $G=(V,E)$, where $V$ is a finite set of
+vertices and $E\subseteq V\times V$ is a set of directed edges.
+\end{definition}
+
+\begin{definition}[Reachability]
+\label{def:reachability}
+Let $G=(V,E)$ be a finite directed graph. A vertex $v\in V$ is
+\emph{reachable} from $u\in V$, written $u\mathrel{R^*}v$, if there is a path
+of length $k\geq 0$ from $u$ to $v$. A path of length zero makes every vertex
+reachable from itself.
+\end{definition}
+
+Writing $R=E$ for the edge relation and $I_V$ for the identity relation on
+$V$, the reflexive transitive closure is
+\begin{equation}
+  R^* = \bigcup_{k\geq 0} R^k,
+  \label{eq:transitive-closure}
+\end{equation}
+where $R^0=I_V$ and relation powers are defined by composition. This standard
+construction is discussed, from complementary graph-theoretic and algorithmic
+viewpoints, by \cite{diestel2017,cormen2022}.
+
+\begin{theorem}[Transitivity of reachability]
+\label{thm:transitivity}
+For any vertices $u,v,w\in V$, if $u\mathrel{R^*}v$ and
+$v\mathrel{R^*}w$, then $u\mathrel{R^*}w$.
+\end{theorem}
+
+\begin{proof}
+The first assumption gives a path from $u$ to $v$, and the second gives a path
+from $v$ to $w$. Concatenating the two paths produces a path from $u$ to $w$.
+Therefore $u\mathrel{R^*}w$ by \cref{def:reachability}.
+\end{proof}
+
+\Cref{thm:transitivity} also follows directly from \cref{eq:transitive-closure}:
+the union contains paths of every finite length and is closed under path
+concatenation.
+
+\begin{corollary}[Reachability is a preorder]
+\label{cor:preorder}
+The relation $R^*$ is reflexive and transitive on $V$: reflexivity comes from
+paths of length zero (\cref{def:reachability}), and transitivity is
+\cref{thm:transitivity}.
+\end{corollary}

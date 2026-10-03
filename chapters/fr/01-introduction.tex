@@ -1,0 +1,31 @@
+\chapter{Introduction}
+\label{ch:introduction}
+
+% Une introduction de mémoire présente généralement le contexte, la question
+% précise, la contribution et un guide de lecture. Pour un rapport long,
+% quatre à six pages suffisent souvent ; il s'agit d'un conseil de
+% planification et non d'une règle LMFI.
+
+Les graphes orientés modélisent des relations à sens unique : une dépendance peut
+relier une tâche à une autre, ou une transition peut conduire d'un état de
+programme à son successeur. Une première question consiste à déterminer si un
+sommet est accessible depuis un autre en suivant zéro ou plusieurs arêtes. Ce
+problème élémentaire relie ici définitions mathématiques, démonstrations,
+algorithmes, figures, tableaux et références dans un même exemple. Des
+introductions classiques figurent notamment dans \cite{diestel2017,cormen2022}.
+
+\section{Question et contribution}
+
+L'exemple répond à la question suivante : comment définir l'accessibilité dans
+un graphe orienté fini, démontrer sa transitivité et la calculer à partir d'une
+matrice d'adjacence ? La contribution reste volontairement modeste. Nous
+formalisons la relation au \cref{ch:background}, la calculons au
+\cref{ch:main-work} et étudions un cas concret au \cref{ch:evaluation}.
+
+\section{Organisation de l'exemple}
+
+La séparation entre préliminaires, travail principal et évaluation illustre une
+structure de chapitres maintenable. Un mémoire théorique peut diviser le travail
+principal en plusieurs chapitres de résultats ; un mémoire appliqué peut diviser
+l'évaluation en protocole, résultats et discussion. Les fichiers sources rendent
+ces deux adaptations locales et explicites.

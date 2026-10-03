@@ -1,0 +1,15 @@
+\begin{tikzpicture}[
+  vertex/.style={circle,draw=LMFINavy,thick,minimum size=8mm,inner sep=0pt},
+  edge/.style={-{Stealth[length=2.4mm]},thick,LMFITeal},
+  node distance=2.2cm
+]
+  \node[vertex] (a) {$a$};
+  \node[vertex, right=of a] (b) {$b$};
+  \node[vertex, right=of b] (c) {$c$};
+  \node[vertex, below=1.0cm of c] (d) {$d$};
+
+  \draw[edge] (a) -- (b);
+  \draw[edge] (b) -- (c);
+  \draw[edge] (c) -- (d);
+  \draw[edge] (a) to[bend right=18] (d);
+\end{tikzpicture}

@@ -1,0 +1,30 @@
+\chapter{Introduction}
+\label{ch:introduction}
+
+% A thesis introduction normally states the context, the precise question, the
+% contribution, and a short reading guide. For a long report, four to six
+% pages are often enough; this is planning advice, not an LMFI rule.
+
+Directed graphs model one-way relations: a dependency may point from one task
+to another, or a transition may lead from one program state to its successor.
+A first question is whether a vertex can be reached from another by following
+zero or more directed edges. This elementary problem is useful here because it
+connects mathematical definitions, proofs, algorithms, figures, tables, and
+references in one coherent example. Standard introductions can be found in
+graph theory and algorithms texts such as \cite{diestel2017,cormen2022}.
+
+\section{Question and contribution}
+
+The example answers the following question: how can reachability in a finite
+directed graph be defined, proved to be transitive, and computed from an
+adjacency matrix? The contribution is deliberately modest. We formalise the
+relation in \cref{ch:background}, compute it in \cref{ch:main-work}, and inspect
+a concrete instance in \cref{ch:evaluation}.
+
+\section{Structure of the example}
+
+The separation between background, main work, and evaluation demonstrates a
+maintainable chapter structure. A theoretical thesis may split the main work
+into several result chapters; an applied thesis may instead split evaluation
+into protocol, results, and discussion. The source files are designed to make
+either change local and explicit.
